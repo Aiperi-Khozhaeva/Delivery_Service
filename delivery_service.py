@@ -1,30 +1,17 @@
 import sys
 
-# robots_weight = [1, 2, 2, 3], это список интов limit = 3, инт
-# масса роботов, вернет количество платформ - 3 инт
+# id успешной посылки - 119794161
 
 
 def delivery_service(robots_weight: list[int], limit: int) -> int:
     robots_weight = sorted(robots_weight)
     count: int = 0
-    # platform_ability == limit
-    left = 0
-    # max_value = robots_weight[left] + robots_weight[right]
-    right = len(robots_weight) - 1
-    while left <= right:
-        if left == right:
-            count += 1
-            break
-        elif robots_weight[left] + robots_weight[right] <= limit:
-            count += 1
-            left += 1
-            right -= 1
-        elif robots_weight[left] + robots_weight[right] > limit:
-            count += 1
-            right -= 1
-            if robots_weight[right] <= limit:
-                count += 1
-                right -= 1
+    x, y = 0, len(robots_weight) - 1
+    while x <= y:
+        if robots_weight[x] + robots_weight[y] <= limit:
+            x += 1
+        y -= 1
+        count += 1
     return count
 
 
