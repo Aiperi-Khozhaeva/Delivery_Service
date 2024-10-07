@@ -1,6 +1,6 @@
 import sys
 
-# id успешной посылки - 119794161
+# id успешной посылки - 119876195
 
 
 def delivery_service(robots_weight: list[int], limit: int) -> int:
